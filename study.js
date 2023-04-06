@@ -1,4 +1,4 @@
-'use strict'; // 이크마5에 추가됨 // 좀더 엄격하게
+"use strict"; // 이크마5에 추가됨 // 좀더 엄격하게
 
 //////호이스팅 : 어디에 선언했는지에 상관없이 제일위로 선언을 올려주는 것
 //var는 블록 스콥 무시
@@ -9,7 +9,7 @@
 //   console.log('hihi');
 // })();
 
-const fruits = ['☢', '💯', '💘'];
+const fruits = ["☢", "💯", "💘"];
 
 for (let i = 0; i < fruits.length; i++) {
   console.log(fruits[i]);
@@ -23,11 +23,11 @@ console.log(`=========let i in fruits==========`);
 for (let i in fruits) {
   console.log(fruits[i]);
 }
-console.log('===========forEach=========');
+console.log("===========forEach=========");
 fruits.forEach((i) => {
   console.log(i);
 });
-console.log('===========test=========');
+console.log("===========test=========");
 
 let man = [];
 function frutsAry(name) {
@@ -37,15 +37,15 @@ function frutsAry(name) {
     man.push(userName);
   });
 }
-frutsAry('대곤');
+frutsAry("대곤");
 
 console.log(man);
 
 console.clear();
 
-const fruit = 'apple, banana, orange, mango';
+const fruit = "apple, banana, orange, mango";
 
-const result = fruit.split(',');
+const result = fruit.split(",");
 console.log(result);
 
 let eat = new Array(fruit);
@@ -62,11 +62,11 @@ class Student {
   }
 }
 const students = [
-  new Student('대곤', 29, true, 45),
-  new Student('은주', 28, false, 80),
-  new Student('기석', 30, true, 90),
-  new Student('원정', 40, false, 66),
-  new Student('테란', 18, true, 88),
+  new Student("대곤", 29, true, 45),
+  new Student("은주", 28, false, 80),
+  new Student("기석", 30, true, 90),
+  new Student("원정", 40, false, 66),
+  new Student("테란", 18, true, 88),
 ];
 //내방식
 for (let i in students) {
@@ -115,3 +115,26 @@ const string = students.map((studen) => {
 console.log(string.toString()); //45,80,90,66,88   join()도 가능
 
 console.log(string.sort()); //[45, 66, 80, 88, 90]
+
+//========================JSON==================
+console.clear();
+
+const rabbit = {
+  name: "tori",
+  color: "white",
+  size: null,
+  birthDate: new Date(),
+  jump: () => {
+    console.log(`${name} 뛰어~~!!!`);
+  },
+};
+console.log(rabbit); //{name: 'tori', color: 'white', size: null, birthDate: Thu Apr 06 2023 10:54:49 GMT+0900 (한국 표준시), jump: ƒ}
+// JSON.stringify 적용 후
+let json = JSON.stringify(rabbit, ["name", "color", "size"]);
+console.log(json);
+//출력 {"name":"tori","color":"white","size":null}
+
+console.log(`JSON.parse()적용`);
+
+let obj = JSON.parse(json);
+console.log(obj); //출력 {name: 'tori', color: 'white', size: null}
