@@ -135,6 +135,6 @@ console.log(json);
 //출력 {"name":"tori","color":"white","size":null}
 
 console.log(`JSON.parse()적용`);
-
+// JSON.parse 적용 후
 let obj = JSON.parse(json);
 console.log(obj); //출력 {name: 'tori', color: 'white', size: null}
